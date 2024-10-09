@@ -21,6 +21,8 @@ This project is an ecommerce application built using Angular and Spring Boot.
 
 * User authentication and authorization
   ![image](https://github.com/user-attachments/assets/b2dd41cd-049f-4cef-9949-9f0161c1a14b)
+  ![image](https://github.com/user-attachments/assets/8694575a-131a-4d95-9692-c9f405d80d57)
+
 
 * File upload
   ![image](https://github.com/user-attachments/assets/b9b507ce-1b68-493b-9afd-989ba0c05666)
