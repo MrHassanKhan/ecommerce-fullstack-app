@@ -20,14 +20,34 @@ This project is an ecommerce application built using Angular and Spring Boot.
 ## Features
 
 * User authentication and authorization
+  ![image](https://github.com/user-attachments/assets/b2dd41cd-049f-4cef-9949-9f0161c1a14b)
+  ![image](https://github.com/user-attachments/assets/8694575a-131a-4d95-9692-c9f405d80d57)
+
+
 * File upload
+  ![image](https://github.com/user-attachments/assets/b9b507ce-1b68-493b-9afd-989ba0c05666)
+
 * Cart management
+  ![image](https://github.com/user-attachments/assets/2f69084b-90a9-41e5-b3e6-7e3be9e8aeeb)
+
 * Product search
-* Product category management
+  ![image](https://github.com/user-attachments/assets/a75ce6bd-065a-4c40-8554-f3e90ccd41d4)
+
+* Product management
+  ![image](https://github.com/user-attachments/assets/72ef2af9-ee0a-4af3-8372-c14052a9f60c)
+![image](https://github.com/user-attachments/assets/2916211d-942e-4b22-a738-3bce8799d1c3)
+
+* User Management
+  ![image](https://github.com/user-attachments/assets/e9e4b2a2-fda5-4c60-ae6f-a1eed1daf31f)
+
 * Product review management
+  ![image](https://github.com/user-attachments/assets/93820a80-2aec-4eab-b24e-3a8e6f57de8f)
+
 * Product brand management
 * Product specification management
 * Product image management
+  ![image](https://github.com/user-attachments/assets/127aae3c-8603-4b64-97f1-00541909f677)
+
 * Product inventory management
 * Product management
 * Order management
