@@ -1,64 +1,45 @@
-# EcommerceApp
+# Ecommerce App
 
-This app was created with Bootify.io - tips on working with the code [can be found here](https://bootify.io/next-steps/).
+This project is an ecommerce application built using Angular and Spring Boot.
 
-## Development
+## Directory Structure
 
-Update your local database connection in `application.yml` or create your own `application-local.yml` file to override
-settings for development.
+* `main/webapp/`: Contains the Angular frontend code.
+    + `app/`: Angular application code.
+    + `assets/`: Static assets such as images and fonts.
+    + `index.html`: The main entry point of the Angular application.
+* `main/java/`: Contains the Spring Boot backend code.
+    + `io/bootify/ecommerce_app/`: Java package for the ecommerce application.
+    + `EcommerceAppApplication.java`: The main application class.
+    + `config/`: Configuration classes for the application.
+    + `controllers/`: REST controllers for the application.
+* `main/resources/`: Contains resource files for the application.
+    + `application.yml`: Configuration file for the application.
+    + `static/`: Static resources such as CSS and JavaScript files.
 
-During development it is recommended to use the profile `local`. In IntelliJ `-Dspring.profiles.active=local` can be
-added in the VM options of the Run Configuration after enabling this property in "Modify options".
+## Features
 
-Lombok must be supported by your IDE. For IntelliJ install the Lombok plugin and enable annotation processing -
-[learn more](https://bootify.io/next-steps/spring-boot-with-lombok.html).
+* User authentication and authorization
+* File upload
+* Cart management
+* Product search
+* Product category management
+* Product review management
+* Product brand management
+* Product specification management
+* Product image management
+* Product inventory management
+* Product management
+* Order management
+* Payment gateway integration
 
-In addition to the Spring Boot application, the development server must also be started - for this
-[Node.js](https://nodejs.org/) version 20 is required. Angular CLI and required dependencies must be installed once:
+## Getting Started
 
-```
-npm install -g @angular/cli
-npm install
-```
+1. Clone the repository: `git clone https://github.com/your-username/your-repo-name.git`
+2. Install dependencies: `npm install` (for Angular) and `mvn clean package` (for Spring Boot)
+3. Run the Angular application: `ng serve`
+4. Run the Spring Boot application: `mvn spring-boot:run`
 
-The development server can be started as follows:
+## Contributing
 
-```
-ng serve
-```
-
-Your application is now accessible under `localhost:4200`.
-
-Add code using Angular schematics with `ng generate ...`.
-Frontend unit tests can be executed with `ng test`.
-Generate a messages.json for translation with `ng extract-i18n –format=json`.
-
-## Build
-
-The application can be built using the following command:
-
-```
-mvnw clean package
-```
-
-Start your application with the following command - here with the profile `production`:
-
-```
-java -Dspring.profiles.active=production -jar ./target/ecommerce-app-0.0.1-SNAPSHOT.jar
-```
-
-If required, a Docker image can be created with the Spring Boot plugin. Add `SPRING_PROFILES_ACTIVE=production` as
-environment variable when running the container.
-
-```
-mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=io.bootify/ecommerce-app
-```
-
-## Further readings
-
-* [Maven docs](https://maven.apache.org/guides/index.html)  
-* [Spring Boot reference](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)  
-* [Spring Data JPA reference](https://docs.spring.io/spring-data/jpa/reference/jpa.html)
-* [Learn Angular](https://angular.dev/tutorials/learn-angular)  
-* [Angular CLI](https://angular.dev/tools/cli)
-* [Tailwind CSS](https://tailwindcss.com/)  
+Contributions are welcome! Please submit a pull request with a clear description of the changes.
