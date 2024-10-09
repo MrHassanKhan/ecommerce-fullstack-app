@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+    db:
+        image: mysql:8.0
+        restart: unless-stopped
+        container_name: mysql_db
+        environment:
+            MYSQL_ROOT_PASSWORD: '12345'
+            MYSQL_DATABASE: 'ecommerce_db'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: '12345'
+        ports:
+            - '3305:3306'
+        expose:
+            -   '3305'
+        volumes:
+            - my_db:/var/lib/mysql/
+#    cache:
+#        image: redis
+#        restart: unless-stopped
+#        container_name: redis_db
+#        ports:
+#            - '6379:6379'
+#        expose:
+#            -   '6379'
+#        volumes:
+#            - redis:/data
+
+volumes:
+    my_db:
+#    redis:

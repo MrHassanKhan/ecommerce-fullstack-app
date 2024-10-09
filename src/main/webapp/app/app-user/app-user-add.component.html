@@ -1,0 +1,13 @@
+<div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@appUser.add.headline">Add App User</h1>
+    <div>
+        <a routerLink="/appUsers" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-4 rounded px-5 py-2" i18n="@@appUser.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="username" i18n-label="@@appUser.username.label" label="Username" />
+    <app-input-row [group]="addForm" field="password" rowType="password" i18n-label="@@appUser.password.label" label="Password" />
+    <app-input-row [group]="addForm" field="fullname" i18n-label="@@appUser.fullname.label" label="Fullname" />
+    <app-input-row [group]="addForm" field="role" rowType="radio" [options]="{'CUSTOMER': 'CUSTOMER', 'VENDOR': 'VENDOR', 'ADMIN': 'ADMIN'}" i18n-label="@@appUser.role.label" label="Role" />
+    <input type="submit" i18n-value="@@appUser.add.headline" value="Add App User" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2 mt-6" />
+</form>

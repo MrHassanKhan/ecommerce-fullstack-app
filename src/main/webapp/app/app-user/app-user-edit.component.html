@@ -1,0 +1,14 @@
+<div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@appUser.edit.headline">Edit App User</h1>
+    <div>
+        <a routerLink="/appUsers" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-4 rounded px-5 py-2" i18n="@@appUser.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@appUser.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="username" i18n-label="@@appUser.username.label" label="Username" />
+    <app-input-row [group]="editForm" field="password" rowType="password" i18n-label="@@appUser.password.label" label="Password" />
+    <app-input-row [group]="editForm" field="fullname" i18n-label="@@appUser.fullname.label" label="Fullname" />
+    <app-input-row [group]="editForm" field="role" rowType="radio" [options]="{'CUSTOMER': 'CUSTOMER', 'VENDOR': 'VENDOR', 'ADMIN': 'ADMIN'}" i18n-label="@@appUser.role.label" label="Role" />
+    <input type="submit" i18n-value="@@appUser.edit.headline" value="Edit App User" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2 mt-6" />
+</form>

@@ -1,0 +1,159 @@
+<!--<header class="bg-gray-50">-->
+<!--    <div class="container px-4 md:px-6">-->
+<!--        <nav class="flex flex-wrap items-center justify-between py-2">-->
+<!--            <a routerLink="/" class="flex py-1.5 mr-4">-->
+<!--                <img ngSrc="logo.png" i18n-alt="@@app.title" alt="EcommerceApp" width="30" height="30" class="inline-block">-->
+<!--                <span class="text-xl pl-3" i18n="@@app.title">EcommerceApp</span>-->
+<!--            </a>-->
+<!--            <button type="button" class="js-dropdown md:hidden border rounded" data-dropdown-keepopen="true"-->
+<!--                    i18n-aria-label="@@navigation.toggle" aria-label="Toggle navigation" aria-controls="navbarToggle" aria-expanded="false">-->
+<!--                <div class="space-y-1.5 my-2.5 mx-4">-->
+<!--                    <div class="w-6 h-0.5 bg-gray-500"></div>-->
+<!--                    <div class="w-6 h-0.5 bg-gray-500"></div>-->
+<!--                    <div class="w-6 h-0.5 bg-gray-500"></div>-->
+<!--                </div>-->
+<!--            </button>-->
+<!--            <div class="hidden md:block flex grow md:grow-0 justify-end basis-full md:basis-auto pt-3 md:pt-1 pb-1" id="navbarToggle">-->
+<!--                <ul class="flex">-->
+<!--                    <li>-->
+<!--                        <a routerLink="/" class="block text-gray-500 p-2" i18n="@@navigation.home">Home</a>-->
+<!--                    </li>-->
+<!--                    <li class="relative">-->
+<!--                        <a class="js-dropdown block text-gray-500 p-2" href="#" id="navbarEntitiesLink" role="button"-->
+<!--                                aria-expanded="false">-->
+<!--                            <span i18n="@@navigation.entities">Entities</span>-->
+<!--                            <span class="text-[9px] align-[3px] pl-0.5">&#9660;</span>-->
+<!--                        </a>-->
+<!--                        <ul class="hidden block absolute right-0 bg-white border border-gray-300 rounded min-w-[10rem] py-2" aria-labelledby="navbarEntitiesLink">-->
+<!--                            <li><a routerLink="/appUsers" class="inline-block w-full hover:bg-gray-200 px-4 py-1" i18n="@@appUser.list.headline">App Users</a></li>-->
+<!--                            <li><a routerLink="/products" class="inline-block w-full hover:bg-gray-200 px-4 py-1" i18n="@@product.list.headline">Products</a></li>-->
+<!--                            <li><a routerLink="/orders" class="inline-block w-full hover:bg-gray-200 px-4 py-1" i18n="@@order.list.headline">Orders</a></li>-->
+<!--                            <li><a routerLink="/payments" class="inline-block w-full hover:bg-gray-200 px-4 py-1" i18n="@@payment.list.headline">Payments</a></li>-->
+<!--                            <li><a routerLink="/carts" class="inline-block w-full hover:bg-gray-200 px-4 py-1" i18n="@@cart.list.headline">Carts</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        @if (authenticationService.isLoggedIn()) {-->
+<!--                        <button type="button" (click)="authenticationService.logout()" class="block text-gray-500 p-2" i18n="@@navigation.logout">Logout</button>-->
+<!--                        } @else {-->
+<!--                        <a routerLink="/login" class="block text-gray-500 p-2" i18n="@@navigation.login">Login</a>-->
+<!--                        }-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a routerLink="/carts" class="block text-gray-500 p-2" i18n="@@navigation.cart">Cart</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </div>-->
+<!--</header>-->
+
+
+<header class="py-4 shadow-sm bg-white">
+    <div class="container flex items-center justify-between">
+        <a routerLink="/"  class="w-32">
+            <img src="/assets/images/logo.svg" alt="Logo" class="w-32">
+        </a>
+
+<!--        <div class="w-full max-w-xl relative flex">-->
+<!--                <span class="absolute left-4 top-3 text-lg text-gray-400">-->
+<!--                    <i class="fa-solid fa-magnifying-glass"></i>-->
+<!--                </span>-->
+<!--            <input type="text" name="search" id="search"-->
+<!--                   class="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"-->
+<!--                   placeholder="search">-->
+<!--            <button-->
+<!--                class="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition hidden md:flex">Search</button>-->
+<!--        </div>-->
+
+        <div class="flex items-center space-x-4">
+            <a href="#" class="text-center text-gray-700 hover:text-primary transition relative">
+                <div class="text-2xl">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="text-xs leading-3">Wishlist</div>
+<!--                <div-->
+<!--                    class="absolute right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">-->
+<!--                    8</div>-->
+            </a>
+            <a routerLink="/carts" class="text-center text-gray-700 hover:text-primary transition relative">
+                <div class="text-2xl">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+                <div class="text-xs leading-3">Cart</div>
+<!--                <div-->
+<!--                    class="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">-->
+<!--                    2</div>-->
+            </a>
+            <a routerLink="/account" class="text-center text-gray-700 hover:text-primary transition relative">
+                <div class="text-2xl">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="text-xs leading-3">Account</div>
+            </a>
+        </div>
+    </div>
+</header>
+
+<nav class="bg-gray-800">
+    <div class="container flex">
+        <div class="px-8 py-4 bg-primary md:flex items-center cursor-pointer relative group">
+                <span class="text-white">
+                    <i class="fa-solid fa-bars"></i>
+                </span>
+            <span class="capitalize ml-2 text-white ">All Categories</span>
+
+            <!-- dropdown -->
+            <div
+                class="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                    <img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain">
+                    <span class="ml-6 text-gray-600 text-sm">Sofa</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                    <img src="assets/images/icons/terrace.svg" alt="terrace" class="w-5 h-5 object-contain">
+                    <span class="ml-6 text-gray-600 text-sm">Terarce</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                    <img src="assets/images/icons/bed.svg" alt="bed" class="w-5 h-5 object-contain">
+                    <span class="ml-6 text-gray-600 text-sm">Bed</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                    <img src="assets/images/icons/office.svg" alt="office" class="w-5 h-5 object-contain">
+                    <span class="ml-6 text-gray-600 text-sm">office</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                    <img src="assets/images/icons/outdoor-cafe.svg" alt="outdoor" class="w-5 h-5 object-contain">
+                    <span class="ml-6 text-gray-600 text-sm">Outdoor</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                    <img src="assets/images/icons/bed-2.svg" alt="Mattress" class="w-5 h-5 object-contain">
+                    <span class="ml-6 text-gray-600 text-sm">Mattress</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between flex-grow md:pl-12 py-5">
+            <div class="flex items-center space-x-6 capitalize">
+                <a routerLink="/" class="text-gray-200 hover:text-white transition">Home</a>
+                <a routerLink="/shop" class="text-gray-200 hover:text-white transition">Shop</a>
+                @if (authenticationService.isLoggedIn() && authenticationService.hasAnyRole(["ADMIN"])) {
+                    <a routerLink="/products" class="text-gray-200 hover:text-white transition">Products</a>
+                    <a routerLink="/orders" class="text-gray-200 hover:text-white transition">Orders</a>
+                    <a routerLink="/appUsers" class="text-gray-200 hover:text-white transition">Users</a>
+                    <a routerLink="/payments" class="text-gray-200 hover:text-white transition">Payments</a>
+
+                } @else {
+                    <a routerLink="/about" class="text-gray-200 hover:text-white transition">About us</a>
+                    <a routerLink="/contact" class="text-gray-200 hover:text-white transition">Contact us</a>
+                }
+
+            </div>
+            @if (authenticationService.isLoggedIn()) {
+                <a href="javascript:void(0)" (click)="authenticationService.logout()" class="text-gray-200 hover:text-white transition">Logout</a>
+            } @else {
+                <a routerLink="/login" class="text-gray-200 hover:text-white transition">Login</a>
+            }
+        </div>
+    </div>
+</nav>

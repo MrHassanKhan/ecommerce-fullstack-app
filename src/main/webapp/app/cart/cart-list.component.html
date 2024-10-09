@@ -1,0 +1,52 @@
+<div class="container py-16">
+    <div class="flex flex-wrap mb-6">
+        <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@cart.list.headline">Carts</h1>
+        <div>
+            <button (click)="clearCart()" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2" i18n="@@cart.list.createNew">Clear Cart</button>
+            <button (click)="createOrder()" [disabled]="!carts"
+                    class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2" i18n="@@cart.list.createNew">Checkout</button>
+        </div>
+    </div>
+    @if (!carts || carts.length === 0) {
+        <div i18n="@@cart.list.empty">No Carts could be found.</div>
+    } @else {
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-left p-2" i18n="@@cart.id.label">Id</th>
+                    <th scope="col" class="text-left p-2" i18n="@@cart.productId.label">ProductId</th>
+                    <th scope="col" class="text-left p-2" i18n="@@cart.productName.label">ProductName</th>
+                    <th scope="col" class="text-left p-2" i18n="@@cart.imageUrl.label">ImageUrl</th>
+                    <th scope="col" class="text-left p-2" i18n="@@cart.quantity.label">Quantity</th>
+                    <th scope="col" class="text-left p-2" i18n="@@cart.price.label">Price</th>
+                    <th><!-- --></th>
+                </tr>
+                </thead>
+                <tbody class="border-t-2 border-black">
+                    @for (cart of carts; track cart.id) {
+                        <tr class="odd:bg-gray-100">
+                            <td class="p-2">{{ cart.id }}</td>
+                            <td class="p-2">{{ cart.productId }}</td>
+                            <td class="p-2">{{ cart.productName }}</td>
+                            <td class="p-2">
+                                <img src="{{ cart.imageUrl }}" alt="{{ cart.productName }}" class="w-20 h-20 rounded">
+                            </td>
+                            <td class="p-2">{{ cart.quantity }}</td>
+                            <td class="p-2">{{ (cart.price||0) * (cart.quantity||0) }}</td>
+                            <td class="p-2">
+
+                                <button (click)="removeCart(cart.productId)" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2" i18n="@@cart.list.clearCart">Remove</button>
+
+                                <!--                    <div class="float-right whitespace-nowrap">-->
+                                <!--                        <a [routerLink]="['/carts/edit', cart.id]" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@cart.list.edit">Edit</a>-->
+                                <!--                        <button type="button" (click)="confirmDelete(cart.id!)" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@cart.list.delete">Delete</button>-->
+                                <!--                    </div>-->
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

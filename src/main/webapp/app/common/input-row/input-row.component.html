@@ -1,0 +1,65 @@
+<div [formGroup]="group!" class="mt-4">
+    @if (rowType === 'checkbox') {
+    <div class="col-span-10 col-start-3">
+        <div>
+            <input [id]="field" [formControlName]="field" type="checkbox"
+                    class="rounded border-gray-300 text-primary {{ getInputClasses() }}" />
+            <label [for]="field" class="ml-2">
+                {{ label + (isRequired() ? '*' : '') }}
+            </label>
+        </div>
+        <app-input-errors [control]="control" />
+    </div>
+    } @else {
+        <label [for]="rowType === 'radio' ? '' : field" class="text-gray-600 mb-2 block">
+            {{ label + (isRequired() ? '*' : '') }}
+        </label>
+        @if (rowType === 'text' || rowType === 'password' || rowType === 'email' || rowType === 'tel') {
+        <input [id]="field" [type]="rowType" [formControlName]="field" placeholder="{{ label + (isRequired() ? '*' : '') }}"
+                class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 {{ getInputClasses() }}" />
+        } @else if (rowType === 'number') {
+        <input [id]="field" type="number" [formControlName]="field" placeholder="{{ label + (isRequired() ? '*' : '') }}"
+                class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 {{ getInputClasses() }}" />
+        } @else if (rowType === 'textarea') {
+        <textarea [id]="field" [formControlName]="field" placeholder="{{ label + (isRequired() ? '*' : '') }}"
+                class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 {{ getInputClasses() }}"></textarea>
+        } @else if (rowType === 'select') {
+        <select [id]="field" [formControlName]="field"
+                class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 {{ getInputClasses() }}">
+            <option [ngValue]="null" i18n="@@select.empty.label">Please select</option>
+            @for (option of optionsMap | keyvalue; track option.key) {
+            <option [ngValue]="option.key">{{ option.value }}</option>
+            }
+        </select>
+        } @else if (rowType === 'multiselect') {
+        <select [id]="field" [formControlName]="field" multiple="true"
+                class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 {{ getInputClasses() }}">
+            @for (option of optionsMap | keyvalue; track option.key) {
+            <option [ngValue]="option.key">{{ option.value }}</option>
+            }
+        </select>
+        } @else if (rowType === 'radio') {
+            @if (!isRequired()) {
+            <div class="inline-block mr-4 last:mr-0 pt-2">
+                <input [id]="field" [formControlName]="field" [value]="null" type="radio"
+                       class="border-gray-300 text-primary {{ inputClass }}" />
+                <label [for]="field" class="ml-2" i18n="@@select.empty.label">Please select</label>
+            </div>
+            }
+            @for (option of optionsMap | keyvalue; track option.key) {
+            <div class="inline-block mr-4 last:mr-0 pt-2">
+                <input [id]="field + '_' + option.key" [formControlName]="field" [value]="option.key" type="radio"
+                        class="border-gray-300 text-primary {{ getInputClasses() }}" />
+                <label [for]="field + '_' + option.key" class="ml-2">{{ option.value }}</label>
+            </div>
+            }
+        } @else if (rowType === 'file') {
+        <input [id]="field" #fileControl type="file" (change)="onFileChange($event)"
+                class="w-full xl:w-3/4 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none p-2 bg-gray-50 {{ getInputClasses() }}" />
+        }
+        @if (fileName) {
+        <div class="mt-2 text-sm text-gray-500">{{ fileName }}</div>
+        }
+        <app-input-errors [control]="control" />
+    }
+</div>

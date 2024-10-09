@@ -1,0 +1,19 @@
+<div class="container py-3">
+    <div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@product.edit.headline">Edit Product</h1>
+    <div>
+        <a routerLink="/products" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-4 rounded px-5 py-2" i18n="@@product.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@product.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="name" i18n-label="@@product.name.label" label="Name" />
+    <app-input-row [group]="editForm" field="description" i18n-label="@@product.description.label" label="Description" />
+    <app-input-row [group]="editForm" field="price" i18n-label="@@product.price.label" label="Price" />
+    <app-input-row [group]="editForm" field="stock" rowType="number" i18n-label="@@product.stock.label" label="Stock" />
+    <app-input-row [group]="editForm" field="file" rowType="file" i18n-label="@@product.file.label" label="File" />
+    <app-input-row [group]="editForm" field="categoryId" rowType="select" [options]="categoryValues" i18n-label="@@product.categoryId.label" label="Category" />
+    <app-input-row [group]="editForm" field="brandId" rowType="select" [options]="brandValues" i18n-label="@@product.brandId.label" label="Brand" />
+    <input type="submit" i18n-value="@@product.edit.headline" value="Edit Product" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2 mt-6" />
+</form>
+</div>

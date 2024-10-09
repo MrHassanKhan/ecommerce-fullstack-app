@@ -1,0 +1,13 @@
+@if (control?.invalid && (control?.dirty || control?.touched)) {
+<div class="mt-1">
+    @for (error of control?.errors | keyvalue; track error.key) {
+    <div class="text-red-600 text-sm">
+        @if (isString(error.value)) {
+            {{ error.value }}
+        } @else {
+            {{ getMessage(error.key, error.value) }}
+        }
+    </div>
+    }
+</div>
+}

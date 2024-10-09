@@ -1,0 +1,39 @@
+<div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@appUser.list.headline">App Users</h1>
+    <div>
+        <a routerLink="/appUsers/add" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2" i18n="@@appUser.list.createNew">Create new App User</a>
+    </div>
+</div>
+@if (!appUsers || appUsers.length === 0) {
+<div i18n="@@appUser.list.empty">No App Users could be found.</div>
+} @else {
+<div class="overflow-x-auto">
+    <table class="w-full">
+        <thead>
+            <tr>
+                <th scope="col" class="text-left p-2" i18n="@@appUser.id.label">Id</th>
+                <th scope="col" class="text-left p-2" i18n="@@appUser.username.label">Username</th>
+                <th scope="col" class="text-left p-2" i18n="@@appUser.fullname.label">Fullname</th>
+                <th scope="col" class="text-left p-2" i18n="@@appUser.role.label">Role</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody class="border-t-2 border-black">
+            @for (appUser of appUsers; track appUser.id) {
+            <tr class="odd:bg-gray-100">
+                <td class="p-2">{{ appUser.id }}</td>
+                <td class="p-2">{{ appUser.username }}</td>
+                <td class="p-2">{{ appUser.fullname }}</td>
+                <td class="p-2">{{ appUser.role }}</td>
+                <td class="p-2">
+                    <div class="float-right whitespace-nowrap">
+                        <a [routerLink]="['/appUsers/edit', appUser.id]" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@appUser.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(appUser.id!)" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@appUser.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

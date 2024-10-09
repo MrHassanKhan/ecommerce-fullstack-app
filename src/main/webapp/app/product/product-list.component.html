@@ -1,0 +1,45 @@
+<div class="container py-3">
+    <div class="flex flex-wrap mb-6">
+        <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@product.list.headline">Products</h1>
+        <div>
+            <a routerLink="/products/add" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2" i18n="@@product.list.createNew">Create new Product</a>
+        </div>
+    </div>
+    @if (!products || products.length === 0) {
+        <div i18n="@@product.list.empty">No Products could be found.</div>
+    } @else {
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-left p-2" i18n="@@product.id.label">Id</th>
+                    <th scope="col" class="text-left p-2" i18n="@@product.name.label">Name</th>
+                    <th scope="col" class="text-left p-2" i18n="@@product.description.label">Description</th>
+                    <th scope="col" class="text-left p-2" i18n="@@product.price.label">Price</th>
+                    <th scope="col" class="text-left p-2" i18n="@@product.stock.label">Stock</th>
+                    <th scope="col" class="text-left p-2" i18n="@@product.addedby.label">Addedby</th>
+                    <th><!-- --></th>
+                </tr>
+                </thead>
+                <tbody class="border-t-2 border-black">
+                    @for (product of products; track product.id) {
+                        <tr class="odd:bg-gray-100">
+                            <td class="p-2">{{ product.id }}</td>
+                            <td class="p-2">{{ product.name }}</td>
+                            <td class="p-2">{{ product.description }}</td>
+                            <td class="p-2">{{ product.price }}</td>
+                            <td class="p-2">{{ product.stock }}</td>
+                            <td class="p-2">{{ product.addedby }}</td>
+                            <td class="p-2">
+                                <div class="float-right whitespace-nowrap">
+                                    <a [routerLink]="['/products/edit', product.id]" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@product.list.edit">Edit</a>
+                                    <button type="button" (click)="confirmDelete(product.id!)" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@product.list.delete">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
