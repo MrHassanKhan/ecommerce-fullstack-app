@@ -2,6 +2,7 @@ package io.bootify.ecommerce_app.rest;
 
 import io.bootify.ecommerce_app.model.AuthenticationRequest;
 import io.bootify.ecommerce_app.model.AuthenticationResponse;
+import io.bootify.ecommerce_app.model.JwtUserDetails;
 import io.bootify.ecommerce_app.service.JwtTokenService;
 import io.bootify.ecommerce_app.service.JwtUserDetailsService;
 import jakarta.validation.Valid;
@@ -41,7 +42,7 @@ public class AuthenticationResource {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         }
 
-        final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final JwtUserDetails userDetails = jwtUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final AuthenticationResponse authenticationResponse = new AuthenticationResponse();
         authenticationResponse.setAccessToken(jwtTokenService.generateToken(userDetails));
         return authenticationResponse;

@@ -8,6 +8,9 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.HashMap;
+
+import io.bootify.ecommerce_app.model.JwtUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +22,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class JwtTokenService {
 
-    private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(20);
+    private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(30);
 
     private final Algorithm rsa256;
     private final JWTVerifier verifier;
@@ -30,10 +33,19 @@ public class JwtTokenService {
         this.verifier = JWT.require(this.rsa256).build();
     }
 
-    public String generateToken(final UserDetails userDetails) {
+    public String generateToken(final JwtUserDetails userDetails) {
         final Instant now = Instant.now();
         return JWT.create()
                 .withSubject(userDetails.getUsername())
+            .withPayload(
+                new HashMap<>(){
+                {
+                    put("id", userDetails.getId());
+                }
+                {
+                    put("username", userDetails.getUsername());
+                }
+            })
                 // only for client information
                 .withArrayClaim("roles", userDetails.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)

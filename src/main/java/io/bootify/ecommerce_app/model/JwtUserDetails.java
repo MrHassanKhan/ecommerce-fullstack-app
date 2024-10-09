@@ -1,6 +1,8 @@
 package io.bootify.ecommerce_app.model;
 
 import java.util.Collection;
+
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
@@ -10,15 +12,20 @@ import org.springframework.security.core.userdetails.User;
  */
 public class JwtUserDetails extends User {
 
-    public final Long id;
+    @Getter
+    final Long id;
+    final String username;
 
     public JwtUserDetails(final Long id, final String username, final String hash,
             final Collection<? extends GrantedAuthority> authorities) {
         super(username, hash, authorities);
         this.id = id;
+        this.username = username;
     }
 
-    public Long getId() {
-        return id;
+    @Override
+    public String getUsername() {
+        return username;
     }
+
 }
